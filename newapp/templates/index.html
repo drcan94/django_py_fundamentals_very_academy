@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    {% if user.is_authenticated %}  
+      {% if user.is_superuser %}
+      <h1>Only For ADMIN</h1>
+      {% else %}
+      <h1>Only For USER</h1>
+      {% endif %}
+    {% else %}
+      <h1>Only For GUEST</h1>
+    {% endif %}
+    <table>
+      <tr>
+        <th style="text-align: center">Name</th>
+        <th style="text-align: center">Age</th>
+      </tr>
+      {% for customer in customers_gt_20 %}
+      <tr>
+        <td style="text-align: center">{{customer.name}}</td>
+        <td style="text-align: center">{{customer.age}}</td>
+        {% comment %} 
+          only "customer" variable provides us with the result returned by the "def __str__" function. 
+        {% endcomment %}
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
