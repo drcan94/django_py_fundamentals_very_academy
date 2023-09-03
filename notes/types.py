@@ -1,5 +1,5 @@
-# open the settings and type "python.analysis.type",
-# arrange to basic or strict for type checking
+# Open the settings and set "python.analysis.type" to either
+# "basic" or "strict" for type checking.
 
 
 def calculate(a: int, b: int) -> int:
